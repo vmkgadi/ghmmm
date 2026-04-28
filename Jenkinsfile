@@ -27,7 +27,8 @@ pipeline {
 
         stage('Quality Gate') {
             steps {
-                sh 'echo Checking quality...'
+                sh 'echo Checking Code
+                quality...'
             }
         }
     }
