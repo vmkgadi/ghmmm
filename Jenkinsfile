@@ -19,5 +19,10 @@ pipeline {
                 echo 'Deploying...'
             }
         }
+        stage('Info') {
+    steps {
+        sh 'echo "Build running on $(hostname)"'
+    }
+}
     }
 }
