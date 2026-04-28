@@ -30,5 +30,10 @@ pipeline {
                 sh 'echo Checking Code'
             }
         }
+        stage('Print branch name & commit id') {
+            steps {
+                sh 'git rev-parse HEAD'
+            }
+        }
     }
 }
