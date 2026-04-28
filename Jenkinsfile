@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     environment {
         IMAGE_NAME = "node-app-demo"
     }
@@ -9,7 +13,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/vmkgadi/ghmmm.git'
+                git branch: 'main', url: 'https://github.com/vmkgadi/ghmmm.git'
             }
         }
 
@@ -21,7 +25,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'echo "No tests yet"' // replace later
+                sh 'echo "No tests yet"'
             }
         }
 
