@@ -1,28 +1,34 @@
 pipeline {
     agent any
 
+    environment {
+        APP_ENV = 'dev'
+    }
+
     stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/vmkgadi/ghmmm.git'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'Building...'
+                sh 'echo Building in $APP_ENV'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing...'
+                sh 'echo Running tests'
             }
         }
 
-        stage('Deploy') {
+        stage('Quality Gate') {
             steps {
-                echo 'Deploying...'
+                sh 'echo Checking quality...'
             }
         }
-        stage('Info') {
-    steps {
-        sh 'echo "Build running on $(hostname)"'
-    }
-}
     }
 }
