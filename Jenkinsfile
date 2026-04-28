@@ -28,7 +28,6 @@ pipeline {
         stage('Quality Gate') {
             steps {
                 sh 'echo Checking Code'
-                quality...'
             }
         }
     }
